@@ -1,0 +1,18 @@
+# Datos de manga: copyright y peso, no se versionan
+data/
+*.cbz
+*.zip
+*.7z
+*.rar
+
+# Basura
+__pycache__/
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Entornos
+venv/
+.venv/
+env/

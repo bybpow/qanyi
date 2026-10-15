@@ -1,32 +1,48 @@
-# scanlation — workspace
+# qanyi — workspace de scanlation
 
-Dos proyectos de traducción de manga, cada uno en su carpeta, como **submódulos**:
+Proyecto de traducción de manga. Dos proyectos, cada uno en su carpeta, como **submódulos**:
 
-| Carpeta | Proyecto | Qué es |
+| Carpeta | Repo | Qué es |
 |---|---|---|
-| `mit-python\` | [bybpow/manga-image-translator](https://github.com/bybpow/manga-image-translator) (fork de [zyddnys](https://github.com/zyddnys/manga-image-translator), 10498★) | el pipeline original en Python: detección, OCR, inpainting y traducción |
-| `ballons\` | [bybpow/BallonsTranslator](https://github.com/bybpow/BallonsTranslator) (fork de [dmMaze](https://github.com/dmMaze/BallonsTranslator), 5210★) | herramienta asistida con GUI: edición de máscaras, texto enriquecido, historial y glosarios para el LLM |
+| `tumpalo\` | [bybpow/tumpalo](https://github.com/bybpow/tumpalo) | fork de [zyddnys/manga-image-translator](https://github.com/zyddnys/manga-image-translator) (10498★) — **el motor**: detección, OCR, inpainting y traducción por lotes |
+| `riddim\` | [bybpow/riddim](https://github.com/bybpow/riddim) | fork de [dmMaze/BallonsTranslator](https://github.com/dmMaze/BallonsTranslator) (5210★) — **el acabado**: GUI para editar máscaras, texto enriquecido, historial y glosarios |
 
-No son forks entre sí: BallonsTranslator es un proyecto aparte que **depende** de
-manga-image-translator (de ahí salen sus modelos `mit*` de OCR y el inpainting AOT).
+No son forks entre sí: **riddim es un proyecto aparte que depende de tumpalo** (de él
+salen sus modelos `mit*` de OCR y el inpainting AOT).
 
 ## Clonar
 
 ```bat
-git clone --recursive https://github.com/bybpow/scanlation
+git clone --recursive https://github.com/bybpow/qanyi
 ```
 
-O si ya está clonado, para traer cambios de los proyectos:
+O si ya está clonado:
 
 ```bat
 git submodule update --init --recursive    REM primera vez
 git submodule update --remote                REM baja lo nuevo de cada proyecto
 ```
 
+Para cambiar algo dentro de un proyecto: se commitea **en su repo** y luego se apunta
+el nuevo commit aquí:
+
+```bat
+cd Sandbox\TBO\tumpalo     git add .   git commit   git push
+cd Sandbox\TBO             git add tumpalo   git commit -m "bump tumpalo"   git push
+```
+
 ## Datos
 
-`data\input\` (mangas fuente) y `data\output\` (resultados) **no se versionan**:
-copyright y peso. Vive en local.
+`source\input\` (mangas fuente) y `source\output\` (resultados) **no se versionan**:
+copyright y peso. Viven solo en local.
+
+```
+source\input\<manga>\paginas\     <- las páginas (solo lectura)
+source\input\<manga>\*.zip|cbz    <- el archivo original
+source\output\<proyecto>\<manga>\ <- los resultados
+```
+
+Para añadir un manga nuevo: crear `source\input\<manga>\paginas\`. Nada más cambia.
 
 ## Instrucciones
 

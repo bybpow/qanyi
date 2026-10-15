@@ -1,6 +1,6 @@
-[submodule "mit-python"]
-	path = mit-python
-	url = https://github.com/bybpow/manga-image-translator.git
-[submodule "ballons"]
-	path = ballons
-	url = https://github.com/bybpow/BallonsTranslator.git
+[submodule "tumpalo"]
+	path = tumpalo
+	url = https://github.com/bybpow/tumpalo.git
+[submodule "riddim"]
+	path = riddim
+	url = https://github.com/bybpow/riddim.git

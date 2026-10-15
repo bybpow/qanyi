@@ -1,5 +1,5 @@
 # Datos de manga: copyright y peso, no se versionan
-data/
+source/
 *.cbz
 *.zip
 *.7z
